@@ -28,7 +28,9 @@ jobs:
           gradle-version: '8.9'
 
       - name: Build Extension
-        run: gradle make
+        run: |
+          chmod +x gradlew || true
+          ./gradlew make || gradle make
 
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
